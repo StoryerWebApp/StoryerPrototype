@@ -46,9 +46,9 @@ def signup_student(request):
                 else:
                     context.update({"exists": True})
         context.update({'error_message': True})
-        return render(request, 'initial_student.html', context)
+        return render(request, 'student-signup.html', context)
 
-    return render(request, 'initial_student.html')
+    return render(request, 'student-signup.html')
 
 
 def signup_faculty(request):
