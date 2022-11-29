@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Student Homepage
+  </title>
+
+  {% load static %}
+  <link rel='stylesheet' href='../../../static/css/pagestyles.css' />
+  <link rel='stylesheet' href='../../../static/css/styles.css' />
+</head>
+
+<body>
+  <div class="pages-banner">
+    <div class="nav-container">
+      <img src="../../../static/media/images/logo.png" alt="logo">
+      <h1>Student Homepage</h1>
+      <h2>{{ student.name }}</h2>
+      {% if group %}
+      {% for g in group %}
+      <div class="group-entry">
+        <h3>Group</h3>
+        <img src="../../../static/media/images/group.png" alt="group" height="200" width="100">
+        <div class="descripton">
+          <p>{{g.description }} </p>
+        </div>
+      </div>
+      {% endfor %}
+      <div>
+        <li><a href="{% url 'storyer:student-view-groups' student.id course %}">View Groups</a></li>
+        <li><a href="{% url 'storyer:student-assignment' student.id course %}">View Assignment</a></li>
+      </div>
+      {% else %}
+      <div>
+        <h3>No Assigned Group</h3>
+        <li><a href="{% url 'storyer:student-pick' student.id course %}">Pick Groups</a></li>
+      </div>
+      {% endif %}
+    </div>
+
+</body>

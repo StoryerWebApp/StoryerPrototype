@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Submission- Student
+  </title>
+
+  {% load static %}
+  <link rel='stylesheet' href='../../../../static/css/pagestyles.css' />
+  <link rel='stylesheet' href='../../../../static/css/styles.css' />
+</head>
+
+<body>
+
+  <body class="solid-bg">
+    <div class="header-bar">
+      <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+    </div>
+    <div class="page-text-dark">
+      <h1>Submit Assignment</h1>
+    </div>
+    <div class="submissions">
+      <div>
+        {% if error_message %}
+        <div>
+          <h3>Submission Error</h3>
+        </div>
+        {% endif %}
+      </div>
+      <p>Include http:// in all URLS</p>
+      <div class="submit-assignment-form">
+        <form action="" method="POST">{% csrf_token %}
+          {{ form|linebreaks }}
+          <button type="submit"> Submit </button>
+        </form>
+      </div>
+
+
+  </body>

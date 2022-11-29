@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Post Registration
+  </title>
+ 
+  {% load static %}
+  <link rel='stylesheet' href='../../static/css/styles.css'/>
+</head>
+
+<body>
+  <div class="post-container">
+  <div class="post-title">
+    <h2>You have successfully signed up!</h2>
+  </div>
+
+  <!-- TODO fix this to actually check for faculty vs student -->
+  <div class="post-nav">
+    <button type="submit" class="button">
+      {% if faculty %}
+      <a href="{% url 'storyer:faculty_landing' %}">CONTINUE</a>
+      {% else if student %}
+      <a href="{% url 'storyer:student_landing' %}">CONTINUE</a>
+      {% endif %}
+    </button>
+  </div>
+  
+  </div>
+
+</body>

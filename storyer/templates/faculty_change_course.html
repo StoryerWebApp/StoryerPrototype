@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Change Course - Faculty 
+  </title>
+ 
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/styles.css' %}"/>
+  <link rel='stylesheet' href="{% static 'css/pagestyles.css' %}"/>
+</head>
+
+<body class="solid-bg">
+  <div class="header-bar">
+    <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+  </div>
+  <div class="page-text-dark">
+    <h1>Your Courses</h1>
+    <h2>Currently viewing {{ course }}</h2>
+    <h3>Code: {{ course.code }}</h3>
+  </div>
+
+  <div class="course-change-form" style="float:left">
+    <!-- This should be a dropdown form for a faculty member to change their course -->
+    <form action="" method="POST">{% csrf_token %}
+      
+      {{ form.as_table }}
+
+      <div>
+        <button type="submit" class="course-change-button"> SUBMIT </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="course-change-nav" style="float:left">
+    <div class="faculty-side-nav">
+      <button type="submit" class="button">
+        <a href="{% url 'storyer:faculty_create_course' faculty.id course.id %}">Create a New Course</a>
+      </button>
+    </div>
+    <div class="faculty-side-nav">
+      <button type="submit" class="button">
+        <a href="{% url 'storyer:faculty_landing' faculty.id course.id %}">GO BACK</a>
+      </button>
+    </div>
+  </div>
+</body>

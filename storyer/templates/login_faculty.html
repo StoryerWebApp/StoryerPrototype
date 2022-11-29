@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Login
+  </title>
+  <meta name="viewport" content="width=device-width,intital-scale=1.0">
+
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/styles.css' %}"/>
+</head>
+
+<div class="sign-on-container">
+  <div class="sign-on-title">
+    <h1>LOGIN - Faculty </h1>
+  </div>
+  <div class="account-error-message">
+    {% if error_message %}
+    <p>Login Error</p>
+    {% endif %}
+  </div>
+
+  <body class="image-bg">
+    <div class="sign-on-form">
+      <form method="POST" name="login-form" action="">{% csrf_token %}
+        <div class="sign-on-form">
+          <div>
+            <label for="inpEmail" class="sign-on-label" id="email" name="email"> Email </label>
+            <input type="email" class="sign-on-input" name="email" required>
+          </div>
+
+          <div>
+            <label for="inpPass" class="sign-on-label" id="password" name="password"> Password </label>
+            <input type="password" class="sign-on-input" name="password" required>
+          </div>
+
+          <div>
+            <button type="submit" class="sign-on-button"> LOGIN </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div style="display:flex; align-items:center; text-align:center">
+      <p><a href="{% url 'storyer:signup_faculty' %}" style="color:white">Create New Account</a></p>
+    </div>
+</div>
+</body>
+
+
+</body>

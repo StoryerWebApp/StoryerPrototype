@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Pick Groups-Student
+  </title>
+
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/pagestyles.css' %}" />
+</head>
+
+<body class="solid-bg">
+  <div class="header-bar">
+    <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+  </div>
+  <div class="page-text-dark">
+    <h1>Pick Groups</h1>
+  </div>
+
+  <!-- there should be as many group-entry generated in the form for every group -->
+  <div class="groups-form">
+    <form>
+      <div class="group-entry">
+        <img src="../../static/media/images/group.png" alt="group">
+
+        <label for="{% group.name %}"> {% group.name %} </label> <!-- here is where the group # would go -->
+        <div class="descripton">
+          <!-- here is where the description would go-->
+        </div>
+        <select id="{% group.name %}">
+          <option value="{% min-number %}">{% min-number %}</option>
+          <!-- however many groups there are, there should be a number
+               this is the priority submission
+               in backend make sure only one number per group eg not have '1' for two groups
+           -->
+          <option value="{% max-number %}">{% max-number %}</option>
+        </select>
+      </div>
+    </form>
+  </div>
+
+  <div>
+    <img src="../../static/media/images/group.png" alt="group">
+
+    <label for="group"> </label> <!-- here is where the group # would go -->
+    <div class="descripton">
+      <!-- here is where the description would go-->
+    </div>
+  </div>
+  <div>
+    <img src="../../static/media/images/group.png" alt="group">
+
+    <label for="group"> </label> <!-- here is where the group # would go -->
+    <div class="descripton">
+
+      <!-- here is where the description would go-->
+    </div>
+  </div>
+
+  <div>
+    <img src="../../static/media/images/group.png" alt="group">
+
+    <label for="group"> </label> <!-- here is where the group # would go -->
+    <div class="descripton">
+
+      <!-- here is where the description would go-->
+    </div>
+  </div>
+
+  </div>
+
+  <div>
+    <button type="submit" class="groups-button"> Rank Groups </button>
+  </div>
+
+
+</body>

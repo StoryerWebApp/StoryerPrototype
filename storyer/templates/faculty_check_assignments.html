@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Submission Links - Facility 
+  </title>
+ 
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/styles.css' %}"/>
+  <link rel='stylesheet' href="{% static 'css/pagestyles.css' %}"/>
+</head>
+
+<body class="solid-bg">
+  <div class="header-bar">
+    <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+  </div>
+  <div class="page-text-dark">
+    <h2>Looking at Course {{ course }}</h2>
+    <h3>Code: {{ course.code }}</h3>
+  </div>
+
+  <div class="group-list-container">
+    <!-- display each group and a list of submissions -->
+    <!-- FOREACH group in course -->
+    {% for group in groups %}
+      <!-- group name -->
+      <div class="group-container">
+        <h2>{{ group.name }}:</h3>
+        <!-- SCROLLBOX -->
+        <div class="group-assignment-list-container">
+          <!-- FOREACh assignment in group -->
+          {% for assignment in group.assignment_set.all %}
+          <div class="assignment-container">
+            <!-- LIST OF LINKS if submitted -->
+            <h3>{{ assignment.title }}:</h3>
+            <p>{{ assignment.description }}</p>
+            <p>Zoom link: <a href="{{ assignment.zoom_link }}" target="_blank">{{ assignment.zoom_link }}</a></p>
+            <p>Video link: <a href="{{ assignment.video_link }}" target="_blank">{{ assignment.video_link }}</a></p>
+            <p>Slides link: <a href="{{ assignment.slides_link }}" target="_blank">{{ assignment.slides_link }}</a></p>
+            <p>Questions link: <a href="{{ assignment.questions_link }}" target="_blank">{{ assignment.questions_link }}</a></p>
+          </div></br>
+          {% endfor %}
+        </div>
+      </div></br>
+    {% endfor %}
+  </div>
+
+  <div class="faculty-side-nav">
+    <button type="submit" class="button">
+      <a href="{% url 'storyer:faculty_landing' faculty.id course.id %}">GO BACK</a>
+    </button>
+  </div>
+  
+</body>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Group Edit - Faculty
+  </title>
+
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/styles.css' %}" />
+  <link rel='stylesheet' href="{% static 'css/pagestyles.css' %}" />
+</head>
+
+<body class="solid-bg">
+  <div class="header-bar">
+    <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+  </div>
+  <div class="page-text-dark">
+    <h2>Looking at Course {{ course }}</h2>
+    <h3>Code: {{ course.code }}</h3>
+    <p>Click on a student to view their details.</p>
+  </div>
+
+  <div class="group-list-container">
+    <!-- display each group and a list of submissions -->
+    <!-- FOREACH group in course -->
+    {% for group in groups %}
+    <!-- group name -->
+    <div class="group-container">
+      <h2>{{ group.name }}:</h2>
+      <!-- SCROLLBOX -->
+      <div class="group-student-list-container">
+        <!-- FOREACh student in group -->
+        {% for student in group.assigned_group.all %}
+        <div class="student-container">
+          <!-- button to view student info -->
+          <div class="student-details-nav">
+            <p> <a href="{% url 'storyer:faculty_student_info' faculty.id course.id student.id %}">{{ student.name
+                }}</a> </p>
+
+          </div>
+        </div></br>
+        {% endfor %}
+      </div>
+    </div></br>
+    {% endfor %}
+  </div>
+
+  <!-- display students that arent in a group in this course -->
+  <div class="extra-student-list-container">
+    <h2>Unassigned Students:</h2>
+    {% for student in unassigned_students %}
+    <div class="student-container">
+      <!-- button to view student info -->
+      <div class="student-details-nav">
+        <p> <a href="{% url 'storyer:faculty_student_info' faculty.id course.id student.id %}">{{ student.name }}</a>
+        </p>
+
+      </div>
+    </div></br>
+    {% endfor %}
+  </div>
+
+  <div class="group-sort-button">
+    <button type="submit" class="button">
+      <a href="{% url 'storyer:faculty_groupsort' faculty.id course.id %}">Sort groups for me</a>
+    </button>
+  </div>
+
+  <div class="faculty-side-nav">
+    <button type="submit" class="button">
+      <a href="{% url 'storyer:faculty_landing' faculty.id course.id %}">GO BACK</a>
+    </button>
+  </div>
+</body>

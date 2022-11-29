@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    View Groups Student
+  </title>
+  {% load static %}
+  <link rel='stylesheet' href='../../../../static/css/pagestyles.css' />
+
+</head>
+
+<body class="solid-bg">
+  <div class="header-bar">
+    <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+  </div>
+  <div class="page-text-dark">
+    <h1>All Groups</h1>
+  </div>
+
+
+  <!--needs name/ids for form info to be posted to API-->
+  <!-- there should be as many group-entry generated in the form for every group -->
+  <div class="groups-form">
+    <div>
+      {% load static %}
+      <link rel='stylesheet' href="{% static 'css/styles.css' %}" />
+      <link rel='stylesheet' href="{% static 'css/pagestyles.css' %}" />
+      </head>
+      {% if groups %}
+      <table>
+
+        <div class="group-list-container">
+          <tr>
+            {% for group in groups %}
+            <td>
+              <div class="group-container">
+                <h2>{{ group.name }}:</h3>
+                  <div class="group-student-list-container">
+                    <!-- FOREACh student in group -->
+                    {% for student in group.assigned_group.all %}
+
+                    <div class="student-container">
+                      <!-- button to view student info -->
+                      <p>{{ student.name }}</p>
+                    </div></br>
+                    {% endfor %}
+                  </div>
+                  <div class="group-assignment-list-container">
+                    {% for assignment in group.assignment_set.all %}
+                    <div class="assignment-container">
+                      <h3>{{ assignment.title }}:</h3>
+                      <p>{{ assignment.description }}</p>
+                      <p>Zoom link: <a href="{{ assignment.zoom_link }}" target="_blank">{{ assignment.zoom_link }}</a>
+                      </p>
+                      <p>Video link: <a href="{{ assignment.video_link }}" target="_blank">{{ assignment.video_link
+                          }}</a></p>
+                      <p>Slides link: <a href="{{ assignment.slides_link }}" target="_blank">{{ assignment.slides_link
+                          }}</a></p>
+                      <p>Questions link: <a href="{{ assignment.questions_link }}"
+                          target="_blank">{{assignment.questions_link }}</a></p>
+                    </div></br>
+            </td>
+            {% endfor %}
+          </tr>
+        </div>
+    </div></br>
+    {% endfor %}
+  </div>
+
+  </table>
+  {% else %}
+  <div class="group-entry">
+    {% load static %}
+    <img src="../../../static/media/images/group.png" alt="group">
+    <div class="descripton">
+      <p>No Groups are available.</p>
+    </div>
+  </div>
+  {% endif %}
+  </div>
+  </div>
+
+</body>

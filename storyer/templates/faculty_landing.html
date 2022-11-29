@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Lander - Faculty 
+  </title>
+ 
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/styles.css' %}"/>
+  <link rel='stylesheet' href="{% static 'css/pagestyles.css' %}"/>
+</head>
+
+<body class="solid-bg">
+  <div class="header-bar">
+    <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+  </div>
+  <div class="page-text-dark">
+    <h1>Welcome Back, {{ faculty }}</h1>
+    {% if course %}
+      <h2>Looking at Course {{ course }}</h2>
+      <h3>Code: {{ course.code }}</h3>
+    {% endif %}
+  </div>
+
+  <div class="faculty-buttons">
+    <table>
+      <tr>
+        <td>
+          <button type="submit" class="button" name="create-course">
+            {% if course %}
+            <a href="{% url 'storyer:faculty_create_course' faculty.id course.id %}">Create New Course</a>
+            {% else %}
+            <a href="{% url 'storyer:faculty_create_course' faculty.id %}">Create New Course</a>
+            {% endif %}
+          </button>
+          <!-- GOTO: faculty_create_course.html -->
+        </td>
+        {% if course %}
+        <td>
+          <button type="submit" class="button" name="change-course">
+            <a href="{% url 'storyer:faculty_change_course' faculty.id course.id %}">View My Courses</a>
+          </button>
+        </td>
+        <!-- GOTO: faculty_change_course.html -->
+        {% endif %}
+      </tr>
+      {% if course %}
+      <tr>
+        <td>
+          <button type="submit" class="button" name="create-assignments">
+            <a href="{% url 'storyer:faculty_create_assignment' faculty.id course.id %}">Create an Assignment</a>
+            <!-- GOTO: faculty_create_assignment.html -->
+          </button>
+        </td>
+        <td>
+          <button type="submit" class="button" name="submitted-assignments">
+            <a href="{% url 'storyer:faculty_check_assignments' faculty.id course.id  %}">View Submitted Assignments</a>
+            <!-- GOTO: faculty_check_assignments.html -->
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <button type="submit" class="button" name="create-group">
+            <a href="{% url 'storyer:faculty_create_group' faculty.id course.id %}">Create a Group</a>
+          </button>
+          <!-- GOTO: faculty_create_group.html -->
+        </td>
+        <td>
+          <button type="submit" class="button" name="group-information">
+            <a href="{% url 'storyer:faculty_edit_groups' faculty.id course.id %}">Group Information</a>
+            <!-- GOTO: faculty_edit_groups.html -->
+          </button>
+        </td>
+      </tr>
+      {% endif %}
+    </table>
+</body>
+</html>

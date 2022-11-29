@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Assignment Page-student
+  </title>
+  {% load static %}
+  <link rel='stylesheet' href='../../../../static/css/pagestyles.css' />
+</head>
+
+<body>
+
+  <div class="pages-banner">
+    <div class="nav-container">
+      {% load static %}
+      <img src="../../../../static/media/images/logo.png" alt="logo">
+      <h1> Assignments</h1>
+    </div>
+
+    <div class="hw">
+      <div class="hw-description">
+        {% if assignment %}
+        <div>
+          <!-- this should be where the description of the assignment should go  -->
+          {% for a in assignment %}
+          <h2>Description</h2>
+          <p>{{ a.description }}</p>
+        </div>
+        <div class="groups-buttons">
+          <p>Submit Assignment</p>
+          <p> <a href="{% url 'storyer:submit-assignment' student.id a.id %}">Continue</a> </p>
+        </div>
+        {% endfor %}
+        <div class="description">
+          <!-- team description should go here-->
+        </div>
+        {% endif %}
+
+      </div>
+    </div>
+</body>

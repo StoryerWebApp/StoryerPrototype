@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Create Groups - Faculty
+  </title>
+ 
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/pagestyles.css' %}"/>
+  <link rel='stylesheet' href="{% static 'css/styles.css' %}"/>
+</head>
+
+<body class="solid-bg">
+  <div class="header-bar">
+    <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+  </div>
+  <div class="page-text-dark">
+    <h1>Group Creation</h1>
+  </div>
+
+  <form action="" method="POST">{% csrf_token %}
+    <div class="group-creation-form">
+      <!-- form is GroupCreateForm from forms.py -->
+      {{ form|linebreaks }}
+      
+        <div>
+          <button type="submit" class="group-create-button"> CREATE </button>
+        </div>
+
+      </div>
+    </div>
+  </form>
+
+  <div class="faculty-side-nav">
+    <button type="submit" class="button">
+      <a href="{% url 'storyer:faculty_landing' faculty.id course.id %}">GO BACK</a>
+    </button>
+  </div>
+  
+</body>
+</html>

@@ -1,0 +1,291 @@
+html
+{
+    height: 100%;
+}
+
+body
+{
+    margin: 0%;
+    width: 100%;
+    height: 100%;
+    /*box-sizing: border-box;*/
+    background-color: #86ACAB;
+    background-size: cover;
+}
+
+/*end of full page styling */
+
+.pages-banner
+{
+
+    width: 100%;
+    height: 185px;
+    background-color: #486A4F;
+    border-radius: 4px;
+}
+
+.nav-container img
+{
+    width: 305px;
+    height: 100px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.nav-container h1
+{
+    text-align: center;
+    size: 40px;
+
+}
+/* end of every pages nav*/
+
+.groups-form
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 200px;
+}
+
+.groups-form img
+{
+    width: 150px;
+    height: 150px;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+/*.groups-form label
+{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px 90px;
+    font-family: Sinhala MN;
+} took this piece out since python will have to make thse groups*/
+
+.groups-button
+{
+    text-align: center; 
+    float: right !important; /* this puts the button to the right*/
+    margin-top: 600px !important;
+    margin-left: 30px;
+    padding: 5px 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 150px; 
+    border-radius: 24px;
+    background:rgba(149, 138, 138, 0.8);
+}
+/*end of nav container*/
+
+.create-groups-form
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 200px;
+}
+
+.create-groups-form img
+{
+    width: 150px;
+    height: 150px;
+    padding-top: 50px;
+    padding-left: 50px;
+}
+
+
+.create-groups-form label
+{
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0px 90px;
+    font-family: Sinhala MN;
+}
+
+.message
+{
+    position: relative;
+    display: inline-block;
+    margin: 6px 40px;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.create-groups-button
+{
+    text-align: center; 
+    float: right !important;
+    margin-top: 500px;
+    margin-left: 40px;
+    padding: 5px 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 150px; 
+    border-radius: 8px;
+    background:rgba(149, 138, 138, 0.8);
+} 
+
+/* end of create styles*/ 
+
+/* start of pick*/
+
+.description
+{
+  /* this would style what is in pick and establish*/ 
+}
+
+/*end of pick*/
+
+/* start of lander*/ 
+
+
+.nav-container img
+{
+    width: 305px;
+    height: 100px;
+    padding-left: 20px;
+    padding-top: 20px;
+}
+
+.student-land
+{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+.student-land img
+{
+    width: 200px;
+    height: 200px;
+    padding-top: 20px;
+    float: left;
+}
+
+.member-names
+{
+    border-radius: 24px;
+    height: 40px;
+    background-color:#486a4f8a;
+    padding-right: 20px;
+    margin: 15px;
+}
+
+/* end of student lander style */
+
+/* start of hw*/
+.hw
+{
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+
+.hw-description
+{
+    justify-content: center;
+} /* any styling for this can be added here, i just figured it needs to be centered*/
+
+/* end of hw*/ 
+
+
+/* start of check*/ 
+
+.check img
+{
+    width: 200px;
+    height: 200px;
+    margin-top: 200px;
+    margin-left: 100px;
+    float: left;
+}
+.group-name
+{
+    border-radius: 24px;
+    height: 40px;
+    background-color:#486a4f8a;
+    padding-right: 20px;
+    margin: 15px;
+    size: 30px;
+}
+
+/* end of check*/ 
+
+/*start of fsubmit*/
+
+
+.submissions img
+{
+    width: 200px;
+    height: 200px;
+    margin-top: 200px;
+    margin-left: 100px;
+    float: left;
+}
+
+/*end of fsubmit*/
+
+/* start of fland*/ 
+
+.facility-land-buttons 
+{
+    text-align: center;
+    padding: 5px 5px 10px;
+    font-size: 20px;
+    font-weight: bold;
+    width: 150px; 
+    border-radius: 42px;
+    background:rgba(149, 138, 138, 0.8);
+}
+
+.facility-buttons 
+{
+    margin-left: 325px;
+    display: inline;
+    
+}
+    
+ .btn 
+{
+    margin-top: 300px;
+    display: inline;
+}
+
+.facility-land-buttons2 
+{
+    text-align: center;
+    padding: 5px 5px 10px;
+    display: inline;
+    font-size: 20px;
+    margin-left: 400px;
+    margin-top: 25px;
+    font-weight: bold;
+    width: 150px; 
+    border-radius: 42px;
+    background:rgba(149, 138, 138, 0.8);
+}
+
+.sign-up-container
+{
+    justify-content: center;
+    width: 1000px;
+    height: 400px;
+    margin-left: 275px;
+    padding-left: 15px;
+    padding-top: 70px ;
+    padding-right: 15px;
+    margin-top: 100px;
+    background: rgba(255, 255, 255, 0.557);
+}
+
+/* this will need to be adjusted to be made more center then it is at the moment*/ 
+
+/* end of fland*/ 
+
+
+
+

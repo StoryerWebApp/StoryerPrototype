@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+   Sign On
+  </title>
+ 
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/styles.css' %}"/>
+</head>
+
+<div class="sign-on-container">
+  <div class="sign-on-title">
+    <h1>SIGN ON </h1>
+  </div>
+<body>
+  <div class="sign-on-form">
+    <form action="./" method="post">
+
+      <div  class="sign-on-form">
+        <div> 
+          <label for="inpEmail" class="sign-on-label"> Email </label>
+          <input type="email" class="sign-on-input">
+        </div>
+
+        <div> 
+          <label for="inpPass" class="sign-on-label"> Password </label>
+          <input type="password" class="sign-on-input">
+        </div>
+      
+        <div>
+          <button type="submit" class="sign-on-button"> LOGIN </button>
+        </div>
+      </div>
+    </form>
+      
+  </div>
+</div>
+  </body>
+    
+
+</body>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang='en'>
+<!---->
+
+<head>
+    <h1>Student Homepage</h1>
+    <h2>{{ student.name }}</h2>
+</head>
+
+<body>
+    <li><a href="{% url 'storyer:pick-groups' student.id %}">Pick Groups</a></li>
+</body>
+
+</html>

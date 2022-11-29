@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Create Course - Faculty
+  </title>
+ 
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/styles.css' %}"/>
+  <link rel='stylesheet' href="{% static 'css/pagestyles.css' %}"/>
+</head>
+
+<body class="solid-bg">
+  <div class="header-bar">
+    <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+  </div>
+  <div class="page-text-dark">
+    <h1>Create a New Course</h1>
+  </div>
+
+  <div class="faculty-create-container">
+    <div class="account-error-message">
+      {% if error_message %}
+      <h3>Course Creation Error</h3>
+      {% if exists %}
+      <p>A course with this name or code already exists.</p>
+      <div>
+        {$ if course %}
+        <a href="{% url 'storyer:faculty_create_course' faculty.id course.id %}">TRY AGAIN</a>
+        {% else %}
+        <a href="{% url 'storyer:faculty_create_course' faculty.id %}">TRY AGAIN</a>
+        {% endif %}
+      </div>
+      {% endif %}
+    </div>
+    <form action="" method="POST">{% csrf_token %}
+      <div class="course-create-form">
+        <div>
+          <label for="inpName" class="course-create-label">Course Name</label>
+          <input type="text" class="course-create-input" name="name" required>
+        </div>
+        <div>
+          <label for="inpCode" class="course-create-label">Course Code</label>
+          <input type="text" class="course-create-input" name="code" required>
+        </div>
+        <div>
+          <button type="submit" class="course-create-button"> CREATE </button>
+        </div>
+      </div>
+    </form>
+
+  <div class="faculty-side-nav">
+    <button type="submit" class="button">
+      {% if course %}
+      <a href="{% url 'storyer:faculty_landing' faculty.id course.id %}">GO BACK</a>
+      {% else %}
+      <a href="{% url 'storyer:faculty_landing' faculty.id %}">GO BACK</a>
+      {% endif %}
+    </button>
+  </div>
+</body>

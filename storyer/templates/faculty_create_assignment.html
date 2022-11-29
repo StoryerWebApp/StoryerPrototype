@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Assignment creation - Faculty
+  </title>
+ 
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/styles.css' %}"/>
+</head>
+
+
+<body class="solid-bg">
+  <div class="header-bar">
+    <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+  </div>
+  <div class="page-text-dark">
+    <h1>Assignment Creation</h1>
+  </div>
+
+  <div class="assignment-creation-form">
+    <form action="" method="POST">{% csrf_token %}
+        
+      {{ form|linebreaks }}
+
+      <div>
+        <button type="submit" class="assigment-create-button"> CREATE </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="faculty-side-nav">
+    <button type="submit" class="button">
+      <a href="{% url 'storyer:faculty_landing' faculty.id course.id %}">GO BACK</a>
+    </button>
+  </div>
+  
+</body>
+</html>

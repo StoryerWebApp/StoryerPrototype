@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Assignment creation
+  </title>
+ 
+  {% load static %}
+  <link rel='stylesheet' href="{% static 'css/styles.css' %}"/>
+</head>
+
+
+<body class="solid-bg">
+  <div class="header-bar">
+    <img class="storyer-logo" src="{% static 'media/images/logo.png' %}" alt="Storyer logo" />
+  </div>
+  <div class="page-text-dark">
+    <h1>{{ student.name }}'s Info</h1>
+  </div>
+
+  <div class="student-email">
+    <h2>Email: {{ student.email }}</h2>
+  </div>
+  <div class="group-name">
+    <h2>Group: {{ group.name }}</h2>
+  </div>
+  <div class="group-list-student-priority">
+    <h3>Student's past preferences:</h3>
+    <!-- input info on ranked priority choice here -->
+    {% for preference in preferences %}
+      <p>{{ preference.group_preference.name }} : Priority {{ preference.priority }}</p>
+    {% endfor %}
+  </div>
+
+  <div class="student-group-change-form" style="float:left">
+    <!-- This should be a dropdown form for a faculty member to change their course -->
+    <form action="" method="POST">{% csrf_token %}
+      
+      {{ form.as_table }}
+
+      <div>
+        <button type="submit" class="student-group-change-button"> SUBMIT </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="faculty-side-nav">
+    <button type="submit" class="button">
+      <a href="{% url 'storyer:faculty_edit_groups' faculty.id course.id %}">GO BACK</a>
+    </button>
+  </div>
+</body>
+</html>

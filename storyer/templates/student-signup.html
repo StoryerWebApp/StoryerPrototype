@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE = edge">
+  <meta name="viewport" content="width=device-width initial-scale=1.0">
+  <title>
+    Initial Sign Up
+  </title>
+ 
+  {% load static %}
+  <link rel='stylesheet' href='../../static/css/styles.css'/>
+</head>
+
+<body class="image-bg">
+<div class="sign-up-container">
+  <div class="sign-up-title">
+    <h1>SIGN UP</h1>
+  </div>
+  <div class="account-error-message">
+    {% if error_message %}
+    <h3>Signup Error</h3>
+    {% if exists %}
+    <p>Account with this email already exists</p>
+    {% endif %}
+    <div>
+      <a href="{% url 'storyer:student-login' %}" style="color:white">Login to Existing Account</a>
+    </div>
+    {% endif %}
+  </div>
+  <form action="" method="POST">{% csrf_token %}
+    <div class="initial-sign-up-form">
+      <div>
+        <label for="inpCode" class="initial-sign-up-label"> Course Invite Code </label>
+        <input type="text" class="sign-up-input" name="course_code" required>
+      </div>
+
+      <div>
+        <label for="inpName" class="initial-sign-up-label"> First Name </label>
+        <input type="text" class="sign-up-input" name="first_name" required>
+      </div>
+      <div>
+        <label for="inpName" class="initial-sign-up-label"> Last Name </label>
+        <input type="text" class="sign-up-input" name="last_name" required>
+      </div>
+
+      <div>
+        <label for="inpEmail" class="initial-sign-up-label"> Email </label>
+        <input type="email" class="sign-up-input" name="email" required>
+      </div>
+
+      <div>
+        <label for="inpPass" class="initial-sign-up-label"> Password </label>
+        <input type="password" class="sign-up-input" name="password" required>
+      </div>
+
+      <div>
+        <button type="submit" class="initial-sign-up-button"> CREATE </button>
+      </div>
+    </div>
+  </form>
+</div>
+</body>
